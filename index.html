@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="app.js" defer></script>
+    <link rel="shortcut icon" href="https://password-generator-by-masud.netlify.app/img/icons8-authentication-96.png" type="image/x-icon">
+    <!-- sweetAlert  -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Password Generator</title>
+  </head>
+  <body class="bg-[#121027]">
+    <div class="flex flex-col items-center justify-center h-screen">
+      <p
+        class="text-center mb-32 mt-20 md:mt-0 text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-pink-500"
+      >
+        Generate a random Password
+      </p>
+      <div class="relative w-11/12 md:w-full max-w-2xl mb-10">
+        <div
+          class="absolute inset-0.5 w-full max-w-2xl bg-gradient-to-r from-cyan-300 to-pink-500 blur-md rounded-lg mb-5"
+        ></div>
+        <div class="flex p-5 bg-[#121027] relative rounded-lg mb-5">
+          <input
+            class="text-center w-full bg-transparent outline-none text-white"
+            type="password"
+            id="password"
+          />
+          <label for="view-check" id="view-icon"
+            ><i class="fa-solid fa-eye-slash text-white"></i
+          ></label>
+          <input
+            class="hidden"
+            type="checkbox"
+            name="view"
+            id="view-check"
+            onchange="handleViewPassword()"
+          />
+        </div>
+      </div>
+
+      <div class="w-11/12 md:w-full max-w-2xl bg-white/10 text-white p-5 rounded-lg">
+        <!-- Control Section  -->
+        <div class="mb-5">
+          <div>
+            <input
+              type="checkbox"
+              name="number"
+              id="number"
+              onchange="handleCheckbox()"
+            />
+            <label for="number">Include Numbers</label>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              name="number"
+              id="special"
+              onchange="handleCheckbox()"
+            />
+            <label for="special">Include Special Characters</label>
+          </div>
+          <div class="flex gap-2">
+            <label for="length">Length </label>
+            <input
+              type="range"
+              name="length"
+              id="length"
+              min="8"
+              max="64"
+              value="8"
+              oninput="handleSlider(event.target.value)"
+            />
+            <h1><span id="char-count">8</span> Characters</h1>
+          </div>
+        </div>
+
+        <!-- Button Section -->
+
+        <div class="flex gap-5">
+          <button
+            class="bg-cyan-300 text-black w-1/2 py-2 rounded-md"
+            onclick="handleCopy()"
+          >
+            Copy to clipboard
+          </button>
+          <button
+            class="bg-pink-500 text-black w-1/2 py-2 rounded-md"
+            onclick="generatePassword()"
+          >
+            Re-Generate
+          </button>
+        </div>
+      </div>
+      <div class="p-4 bg-[#121027] text-white rounded-lg shadow md:px-6 md:py-8 dark:bg-gray-900 mt-12 md:mt-24">
+        <div class="sm:flex sm:items-center sm:justify-between">
+            <a href="#" class="flex items-center mr-10 mb-4 sm:mb-0">
+                <img src="https://password-generator-by-masud.netlify.app/img/icons8-authentication-96.png" class="mr-3 h-8" alt="password generator  Logo">
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Password Generator</span>
+            </a>
+            <ul class="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 dark:text-gray-400">
+                <li>
+                    <a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
+                </li>
+                <li>
+                    <a href="#" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
+                </li>
+                <li>
+                    <a href="#" class="mr-4 hover:underline md:mr-6 ">Licensing</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <hr class="my-6 bg-[#121027] border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8">
+        <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="https://www.facebook.com/profile.php?id=100010419976460" target="_blank" class="hover:underline">Md.Junnun Prodhan</a>. All Rights Reserved.
+        </span>
+    </div>
+    
+</div>  
+  </body>
+</html>
